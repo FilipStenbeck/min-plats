@@ -37,9 +37,9 @@
 					</a> <a class="brand ng-cloak" href="#"> {{busStop}}</a>
 					<div class="nav-collapse collapse">
 						<ul class="nav" style="float: right;">
-							<li class="active"><a ng-click="atHolmviksskogen()" href="#">Holmviksskogen</a></li>
-							<li class="active"><a ng-click="atSlussen()" href="#">Slussen</a></li>
-							<li class="active"><a ng-click="atHemmesta()" href="#">Hemmesta</a></li>
+							<li class="active"><a ng-click="setBusStop('Holmviksskogen')" href="#">Holmviksskogen</a></li>
+							<li class="active"><a ng-click="setBusStop('Slussen')" href="#">Slussen</a></li>
+							<li class="active"><a ng-click="setBusStop('Hemmesta')" href="#">Hemmesta</a></li>
 							<li class="active"><a ng-click="reload()" href="#">Reload</a></li>
 							<li><a href="#myModal" data-toggle="modal">About</a></li>
 						</ul>
@@ -60,11 +60,7 @@
 					<h3 id="myModalLabel">About</h3>
 				</div>
 				<div class="modal-body">
-					<p>
-						This site is built as a small test of <strong> Angular.js.
-						</strong>
-					</p>
-					<p>This is a small test of Angular.js. The site displays live information of bus departures from a few selected bus stops. Very useful (if you live near me).</p>
+					<p>This is a small test of <strong>Angular.js.</strong> The site displays live information of bus departures for a few selected bus stops. Very useful (if you live near me).</p>
 					<p>
 						<strong>Contact me on:</strong>
 					</p>

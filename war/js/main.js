@@ -1,29 +1,6 @@
 function busCtrl($scope, $http) {
-    var scope = $scope;
-    var http = $http;
     
-    $scope.busStop = "Holmviksskogen";
-    
-    $scope.atHolmviksskogen = function () {
-        $scope.busStop = "Holmviksskogen";
-        $scope.reload(scope,http);
-    }
-    
-      $scope.atSlussen = function () {
-         $scope.busStop = "Slussen";
-         $scope.reload(scope,http);
-    }
-      
-    $scope.atHolmviksskogen = function () {
-        $scope.busStop = "Holmviksskogen";
-        $scope.reload(scope,http);
-    }
-    
-    $scope.atHemmesta = function () {
-        $scope.busStop = "Hemmesta";
-        $scope.reload(scope,http);
-    }
-    
+    //Spinner object constructor
     $scope.Spinner = function () {
         var opts = {
     	lines: 13, // The number of lines to draw
@@ -45,21 +22,33 @@ function busCtrl($scope, $http) {
 	   var target = document.getElementById('spinner');
 	   var spinner = new Spinner(opts).spin(target);
         return spinner;
-    }
+    };
    
-    $scope.spinner = new $scope.Spinner();
-	
+    //First value for bus stop is of cource my stop
+    $scope.busStop = "Holmviksskogen";
     
+    //Set bus stop to look for
+    $scope.setBusStop = function (stop) {
+        $scope.busStop = stop;
+        $scope.reload();
+    };
+    
+    //Create a spinner
+    $scope.spinner = new $scope.Spinner();
+    
+    //Load data
     $http.get('minplatsarray?siteId='+$scope.busStop).success(function(data) {
         $scope.buses = data;
-         $scope.spinner.stop();
-       
+        $scope.spinner.stop();
     });
     
-    $scope.reload = function reload(scope, http) {
+    //Reload data
+    $scope.reload = function reload() {
+        $scope.spinner = new $scope.Spinner();
+         $scope.buses = [];
         $http.get('minplatsarray?siteId='+$scope.busStop).success(function(data) {
-           $scope.buses = data;
-           $scope.spinner.stop();
+        $scope.buses = data;
+        $scope.spinner.stop();
 	   }); 
     }
 }
