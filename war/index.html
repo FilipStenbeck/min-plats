@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" ng-app> 
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 60px;
+                padding-bottom: 40px;
+            }
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+         <script src="js/vendor/angular-1.0.5.min.js"></script>
+         <script src="js/vendor/spin.js"></script>
+    </head>
+    <body ng-controller="busCtrl">
+       
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand ng-cloak" href="#"> {{busStop}}</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="active"><a   ng-click="atHolmviksskogen()" href="#">Holmviksskogen</a></li>
+                            <li class="active"><a   ng-click="atSlussen()" href="#">Slussen</a></li>
+                            <li class="active"><a   ng-click="atHemmesta()" href="#">Hemmesta</a></li>
+                            <li class="active"><a   ng-click="reload()" href="#">Reload</a></li>
+                            <li><a href="#myModal"  data-toggle="modal">About</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            
+            
+            <!-- Modal -->
+            <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">About</h3>
+            </div>
+            <div class="modal-body">
+			<p>This site is built as a small test of  <strong> Angular.js. </strong> </p>
+            <p>The site displays live information of bus departures from my bus stop. Very useful (if you live near me)</p>
+			<p><strong>Contact me on:</strong>
+			</p> 
+			<p>
+				<a href="http://www.linkedin.com/profile/view?id=12116865&amp;trk" target="top"><img src="img/LinkedInButton.JPG" width="55"></a>
+				&nbsp;
+				<a href="https://twitter.com/FilipStenbeck" target="top"><img src="img/twitter-bird-light-bgs.png" width="65"></a>
+			</p>
+		</div>
+            <div class="modal-footer">
+            
+            </div>
+            </div>
+            
+            
+            <div class="row" style="margin : 15px 15px 15px 15px ">
+			 <div class='row'  ng-repeat="bus in buses">
+			 
+                <div class='ng-cloak span3 well default-margin' style="text-align: center;">
+                    <strong> {{bus.Destination}} </strong> &nbsp; : &nbsp;
+                    <strong>  {{bus.DisplayTime}} </strong>
+                </div> 
+            </div>
+		  </div>
+        
+            <div class="row" style="margin : 40px 15px 80px 15px ">
+                <div id="spinner"  class='span1 default-margin'>
+                </div>
+            </div>  
+                    
+            <hr>
+            <footer>
+                <p>&copy; Filip Stenbeck 2013</p>
+            </footer>
+
+        </div> <!-- /container -->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+       
+        
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+    </body>
+</html>
