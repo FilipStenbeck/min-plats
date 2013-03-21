@@ -2,7 +2,6 @@ function busCtrl($scope, $http) {
     var scope = $scope;
     var http = $http;
     
-    
     $scope.busStop = "Holmviksskogen";
     
     $scope.atHolmviksskogen = function () {
@@ -20,15 +19,13 @@ function busCtrl($scope, $http) {
         $scope.reload(scope,http);
     }
     
-       
     $scope.atHemmesta = function () {
         $scope.busStop = "Hemmesta";
         $scope.reload(scope,http);
     }
-   
     
-    //This is the spinner
-    var opts = {
+    $scope.Spinner = function () {
+        var opts = {
     	lines: 13, // The number of lines to draw
 		 length: 7, // The length of each line
 		 width: 4, // The line thickness
@@ -44,23 +41,25 @@ function busCtrl($scope, $http) {
 		 zIndex: 2e9, // The z-index (defaults to 2000000000)
 		 top: 'auto', // Top position relative to parent in px
 		 left: 'auto' // Left position relative to parent in px
-	};
-	var target = document.getElementById('spinner');
-	var spinner = new Spinner(opts).spin(target);
+	   };
+	   var target = document.getElementById('spinner');
+	   var spinner = new Spinner(opts).spin(target);
+        return spinner;
+    }
+   
+    $scope.spinner = new $scope.Spinner();
 	
     
     $http.get('minplatsarray?siteId='+$scope.busStop).success(function(data) {
         $scope.buses = data;
-        spinner.stop();
+         $scope.spinner.stop();
        
     });
     
     $scope.reload = function reload(scope, http) {
-    	spinner.spin();
         $http.get('minplatsarray?siteId='+$scope.busStop).success(function(data) {
            $scope.buses = data;
-           spinner.stop();
-            
+           $scope.spinner.stop();
 	   }); 
     }
 }
