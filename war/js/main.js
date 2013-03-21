@@ -26,14 +26,8 @@ function busCtrl($scope, $http) {
         return new Spinner(opts).spin(target);
     };
    
-    //First value for bus stop is of cource my stop
+    //Initial value for bus stop is of cource my stop
     $scope.busStop = "Holmviksskogen";
-    
-    //Set bus stop to look for
-    $scope.setBusStop = function (stop) {
-        $scope.busStop = stop;
-        $scope.reload();
-    };
     
     //Create a spinner
     $scope.spinner = new $scope.Spinner();
@@ -44,7 +38,15 @@ function busCtrl($scope, $http) {
         $scope.spinner.stop();
     });
     
-    //Reload data
+    
+    //change bus stops
+    $scope.setBusStop = function (stop) {
+        $scope.busStop = stop;
+        $scope.reload();
+    };
+    
+    
+    //reload data
     $scope.reload = function reload() {
         $scope.spinner = new $scope.Spinner();
         $scope.buses = [];
