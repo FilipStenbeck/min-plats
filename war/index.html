@@ -24,7 +24,7 @@
 		
 		<script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 		<script src="js/vendor/angular-1.0.5.min.js"></script>
-		<script src="js/vendor/spin.js"></script>
+		
 	</head>
 	<body ng-controller="busCtrl">
 	
@@ -60,7 +60,8 @@
 					<h3 id="myModalLabel">About</h3>
 				</div>
 				<div class="modal-body">
-					<p>This is a small test of <strong>Angular.js.</strong> The site displays live information of bus departures for a few selected bus stops. Very useful (if you live near me).</p>
+					<p>This is a small test of <strong>Angular.js.</strong> </p>
+                    <p>The site displays live information of bus departures for a few selected bus stops. Very useful (if you live near me).</p>
 					<p>
 						<strong>Contact me on:</strong>
 					</p>
@@ -72,16 +73,13 @@
 				<div class="modal-footer"></div>
 			</div>
 	
-	
-			<div class="row" style="margin: 15px 15px 15px 15px">
-				<div class='row' ng-repeat="bus in buses">
-					<div class='ng-cloak span3 well default-margin' style="text-align: center;">
-						<strong style="float=left;"> {{bus.Destination}} </strong> &nbsp; : &nbsp; 
-						<strong style="float=right;"> {{bus.DisplayTime}} </strong>
-					</div>
-				</div>
-			</div>
-	
+            <table class="table table-bordered table-striped">        
+                <tr  ng-repeat="bus in buses">
+                    <td>{{bus.Destination}}</td>
+                    <td> {{bus.DisplayTime}}</td>
+                </tr>
+            </table>
+            
 			<div class="row" style="margin: 40px 15px 80px 15px">
 				<div id="spinner" class='span1 default-margin'></div>
 			</div>
@@ -96,7 +94,7 @@
 	
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-	
+	   <script src="js/vendor/spin.js"></script>
 		<script src="js/vendor/bootstrap.min.js"></script>
 		<script src="js/plugins.js"></script>
 		<script src="js/main.js"></script>
