@@ -1,43 +1,20 @@
 function busCtrl($scope, $http) {
-    var target, spinner;
-   
-    //Defining the Spinner object
-    $scope.Spinner = function () {
-        var opts = {
-            lines: 13,
-            length: 7,
-            width: 4,
-            radius: 10,
-            corners: 1,
-            rotate: 0,
-            color: '#000',
-            speed: 1,
-            trail: 60,
-            shadow: false,
-            hwaccel: false,
-            className: 'spinner',
-            zIndex: 2e9,
-            top: 'auto',
-            left: 'auto'
-        };
-        //Oops, direct DOM manipulation, how rude!
-        target = document.getElementById('spinner');
-        
-        return new Spinner(opts).spin(target);
-    };
-   
+    var spinner;
+    
     //Initial value for bus stop is of cource my stop
     $scope.busStop = "Holmviksskogen";
     
-    //Create a spinner
-    $scope.spinner = new $scope.Spinner();
-    
+    // Create an injector and configure it from 'spinnerModule'
+    $injector = angular.injector(['spinnerModule']);
+     
+    // retrieve an object from the injector by name
+     spinner = $injector.get('spinner');
+         
     //Load data
     $http.get('minplatsarray?siteId=' + $scope.busStop).success(function (data) {
         $scope.buses = data;
-        $scope.spinner.stop();
+        spinner.opts.fadeOut();
     });
-    
     
     //change bus stops
     $scope.setBusStop = function (stop) {
@@ -45,14 +22,13 @@ function busCtrl($scope, $http) {
         $scope.reload();
     };
     
-    
     //reload data
     $scope.reload = function reload() {
-        $scope.spinner = new $scope.Spinner();
         $scope.buses = [];
+        spinner.opts.fadeIn();
         $http.get('minplatsarray?siteId=' + $scope.busStop).success(function (data) {
+            spinner.opts.fadeOut();
             $scope.buses = data;
-            $scope.spinner.stop();
         });
     };
 }
