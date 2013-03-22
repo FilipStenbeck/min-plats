@@ -21,9 +21,11 @@
             top: 'auto',
             left: 'auto',
             fadeOut : function fadeOut() {
+                $('table thead').show()
                 $('#spinner').fadeOut('fast');
             },
             fadeIn : function fadeIn() {
+                $('table thead').hide()
                 $('#spinner').fadeIn('fast');
             }
         };

@@ -9,6 +9,7 @@ function busCtrl($scope, $http) {
      
     // retrieve an object from the injector by name
     spinner = $injector.get('spinner');
+    spinner.opts.fadeIn();
          
     //Load data
     $http.get('minplatsarray?siteId=' + $scope.busStop).success(function (data) {
