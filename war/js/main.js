@@ -8,7 +8,7 @@ function busCtrl($scope, $http) {
     $injector = angular.injector(['spinnerModule']);
      
     // retrieve an object from the injector by name
-     spinner = $injector.get('spinner');
+    spinner = $injector.get('spinner');
          
     //Load data
     $http.get('minplatsarray?siteId=' + $scope.busStop).success(function (data) {

@@ -1,9 +1,9 @@
 //Spinner module
 (function () {
     
-    var spinnerModule = angular.module('spinnerModule', [])
+    var spinnerModule = angular.module('spinnerModule', []);
     
-    spinnerModule.factory('spinner', function() {
+    spinnerModule.factory('spinner', function () {
         var opts = {
             lines: 13,
             length: 7,
@@ -23,11 +23,11 @@
             fadeOut : function fadeOut() {
                 $('#spinner').fadeOut('fast');
             },
-             fadeIn : function fadeIn() {
+            fadeIn : function fadeIn() {
                 $('#spinner').fadeIn('fast');
             }
         };
         
-        return new Spinner(opts).spin(document.getElementById('spinner'));   
+        return new Spinner(opts).spin(document.getElementById('spinner')); 
     });
 }());
