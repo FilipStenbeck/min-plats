@@ -1,0 +1,23 @@
+body {
+    font-size: 22px;
+}
+
+.navbar-header {
+	background: black;	
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: black !important;
+}
+
+.departure-list {
+	background: white;
+	border-radius: 6px;
+}
+
+
+#departures #loader {
+	float : left;
+	margin-right: 20px;
+}
+

@@ -1,0 +1,85 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Min Plats</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+      <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="#centralen" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Centralen</a>
+            <li><a href="#gustavsberg" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Gustavsbergs Centrum</a></li>
+            <li><a href="#hemmesta" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Hemmesta</a></li>
+            <li><a href="#holmviksskogen" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Holmviksskogen</a></li>
+             <li><a href="#slussen" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Slussen</a></li>
+             </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+        <div class="container">
+
+            <!-- List Departures -->
+            <div id="departures">
+                <h1 id="stop-name"></h1>
+                <div class="departure-list">
+                   <img id="loader" src="images/loader3.gif"/>
+                    <table class="table" > 
+                        <thead>
+                          <tr>
+                            <th>Linje</th>
+                            <th>Mot</th>
+                            <th>Avgår</th>
+                          </tr>
+                        </thead>
+                        <tbody >
+                           <!-- Rows will be inserted here--> 
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- build:js scripts/vendor.js -->
+        <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/underscore/underscore.js"></script>
+        <script src="bower_components/backbone/backbone.js"></script>
+         <script src="bower_components/bootstrap/js/collapse.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <script src="scripts/templates.js"></script>
+        <script src="scripts/collections/departures.js"></script>
+        <script src="scripts/views/departuresList.js"></script>
+        <script src="scripts/routes/appRouter.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
