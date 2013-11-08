@@ -6,6 +6,10 @@ body {
 	background: black;
 }
 
+.navbar-collapse {
+	max-height: 400px !important;
+}
+
 .navbar-default .navbar-nav > li > a {
 	color: black !important;
 	font-size: 1.3em;
@@ -38,3 +42,24 @@ table {
 	margin-top: 20px;
 }
 
+
+#search {
+	margin-top: 20px;
+}
+
+#search_loader {
+	margin-top: 20px;
+	text-align: center;
+}
+
+input[type="search"] {
+	line-height: 43px !important;
+	height: 43px !important;
+	font-size: 28px !important;
+}
+
+button {
+	line-height: 28px !important;
+	height: 43px !important;
+	font-size: 28px !important;
+}

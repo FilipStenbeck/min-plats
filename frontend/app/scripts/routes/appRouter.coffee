@@ -8,6 +8,8 @@ class minplats.Routers.ApprouterRouter extends Backbone.Router
 		'holmviksskogen' : 'loadHolmviksskogen'
 		'gustavsberg' : 'loadGurra',
 		'centralen' : 'loadCentralen',
+		'search' : 'search'
+		'result' : 'result'
 		'*path' :  'loadHolmviksskogen'
 
 
@@ -24,5 +26,11 @@ class minplats.Routers.ApprouterRouter extends Backbone.Router
 		minplats.depList.load('4200')
 
 	loadCentralen:->
-		minplats.depList.load('9002') 
+		minplats.depList.load('9002')
+
+	search:->
+		minplats.search.render()
+
+	result:->
+		console.log "result from search" 
 

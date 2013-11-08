@@ -30,6 +30,7 @@ app.use(allowCrossDomain);
 var rest = { };
 rest.version = {version : '1.0'}
 rest.url = "http://api.trafiklab.se/sl/realtid/GetDpsDepartures.json?key=6707185a59791ecfb9bd173d74e2a343&siteId=";
+rest.searchUrl = "http://api.trafiklab.se/sl/realtid/GetSite.json?key=6707185a59791ecfb9bd173d74e2a343&stationSearch="
 
 //Test resource
 app.get('/test', function (req, res) {
@@ -51,6 +52,30 @@ app.get('/departures/:id', function (request, response) {
             try {
                 data = JSON.parse(json)
                 response.send(data.DPS.Buses.DpsBus);
+            } catch (e) {
+                response.send(e);
+            }
+        });
+    }).on('error', function(e) {
+      console.log("Got error: ", e);
+    });
+});
+
+//search
+app.get('/search/:name', function (request, response) {
+    var json = '';
+
+    http.get(rest.searchUrl + request.params.name, function(res) {
+        res.on('data', function(chunk) {
+            json += chunk;
+        });
+
+        res.on('end', function() {
+            
+            var data;
+            try {
+                data = JSON.parse(json)
+                response.send(data.Hafas.Sites.Site);
             } catch (e) {
                 response.send(e);
             }

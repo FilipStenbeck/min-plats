@@ -40,6 +40,8 @@
             <li><a href="#holmviksskogen" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Holmviksskogen</a></li>
              <li><a href="#slussen" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Slussen</a></li>
              </li>
+             <li class="divider"></li>
+              <li><a href="#search" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Sök</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </nav>
@@ -50,7 +52,7 @@
             <div id="departures">
                 <h1 id="stop-name"></h1>
                 <div class="departure-list">
-                   <img id="loader" src="images/loader_large.gif"/>
+                   <img id="loader" src="../images/loader_large.gif"/>
                     <table class="table departures-tabel" > 
                         <thead>
                           <tr>
@@ -64,6 +66,10 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+
+            <!--seach-->       
+            <div id="search">
             </div>
         </div>
 
@@ -80,6 +86,8 @@
         <script src="scripts/collections/departures.js"></script>
         <script src="scripts/views/departuresList.js"></script>
         <script src="scripts/routes/appRouter.js"></script>
+        <script src="scripts/views/search.js"></script>
+        <script src="scripts/collections/searchResult.js"></script>
         <!-- endbuild -->
 </body>
 </html>

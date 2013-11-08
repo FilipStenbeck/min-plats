@@ -18,6 +18,8 @@ class minplats.Views.DepartureslistView extends Backbone.View
 		$(@el).find('tbody').append(_.template(template))	 
 
 	render: ->
+		$(@el).removeClass('hidden')
+		$(minplats.search.el).addClass('hidden')
 		$(@el).find('#loader').addClass('hidden')
 		$(@el).find('table').removeClass('hidden')
 		$(@el).find('tbody tr').remove()
