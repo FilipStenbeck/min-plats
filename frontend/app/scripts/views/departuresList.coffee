@@ -6,7 +6,7 @@ class minplats.Views.DepartureslistView extends Backbone.View
 		@id = options.id
 		@el = "#departures"
 		@collection = new minplats.Collections.DeparturesCollection(id: @id)
-		@collection.fetch()
+		#@collection.fetch()
 		@listenTo(@collection, 'sync', @render)
 
 	writeTableRow: (row) =>

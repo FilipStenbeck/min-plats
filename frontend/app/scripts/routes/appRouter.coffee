@@ -7,7 +7,8 @@ class minplats.Routers.ApprouterRouter extends Backbone.Router
 		'slussen' : 'loadSlussen'
 		'holmviksskogen' : 'loadHolmviksskogen'
 		'gustavsberg' : 'loadGurra',
-		'centralen' : 'loadCentralen'
+		'centralen' : 'loadCentralen',
+		'*path' :  'loadHolmviksskogen'
 
 
 	loadHemmesta:->
