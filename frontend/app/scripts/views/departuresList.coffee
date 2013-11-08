@@ -19,6 +19,7 @@ class minplats.Views.DepartureslistView extends Backbone.View
 
 	render: ->
 		$(@el).find('#loader').addClass('hidden')
+		$(@el).find('table').removeClass('hidden')
 		$(@el).find('tbody tr').remove()
 		if @collection.models.length > 1
 			$(@el).find('#stop-name').html(@collection.models[0].get('StopAreaName'))
@@ -30,6 +31,7 @@ class minplats.Views.DepartureslistView extends Backbone.View
 	load : (id) ->
 		$(@el).find('#loader').removeClass('hidden')
 		$(@el).find('#stop-name').html('')
+		$(@el).find('table').addClass('hidden')
 		@collection.updateUrl(id)
 		@collection.fetch()	
 

@@ -3,7 +3,7 @@ body {
 }
 
 .navbar-header {
-	background: black;	
+	background: black;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -21,15 +21,20 @@ body {
 	border-bottom: 0px !important;
 }
 
-
+table {
+	width: 98% !important;
+}
 .departure-list {
 	background: white;
 	border-radius: 6px;
+	text-align: center;
 }
 
+.display-time {
+	white-space: nowrap;
+}
 
 #departures #loader {
-	float : left;
-	margin-right: 20px;
+	margin-top: 20px;
 }
 
